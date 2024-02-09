@@ -1,9 +1,10 @@
 package com.qa.testing.uat;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
@@ -97,13 +98,13 @@ public class SeleniumDemoTest {
 
 		WebElement output = this.driver.findElement(By.cssSelector("#result"));
 
-		Assertions.assertTrue(output.getText().contains("react"));
+		assertTrue(output.getText().contains("react"));
 
 		WebElement checked = this.driver.findElement(By.cssSelector(
 				"#tree-node > ol > li > ol > li.rct-node.rct-node-parent.rct-node-expanded > ol > li.rct-node.rct-node-parent.rct-node-expanded > ol > li:nth-child(1) > span > label > span.rct-checkbox > svg"));
 
 		// check that the svg does NOT have the 'uncheck' class
-		Assertions.assertFalse(checked.getAttribute("class").contains("uncheck"));
+		assertFalse(checked.getAttribute("class").contains("uncheck"));
 	}
 
 	@AfterEach
